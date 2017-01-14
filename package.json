@@ -1,0 +1,55 @@
+{
+  "name": "serverless-plugin-deployment-id",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=4.0"
+  },
+  "description": "RA serverless service for responding to analytics events from Here One",
+  "author": "jemonjam <jacob.e.meacham@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jacob-meacham/serverless-plugin-deployment-id/issues"
+  },
+  "homepage": "https://github.com/jacob-meacham/serverless-plugin-deployment-id#readme",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacob-meacham/serverless-plugin-deployment-id"
+  },
+  "keywords": [
+    "serverless",
+    "serverless applications",
+    "aws",
+    "aws lambda",
+    "amazon",
+    "amazon web services",
+    "serverless.com"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "ava",
+    "build": "npm run lint && npm run test"
+  },
+  "dependencies": {
+    "lodash": "4.17.4"
+  },
+  "devDependencies": {
+    "ava": "0.17.0",
+    "babel-cli": "6.18.0",
+    "babel-core": "6.21.0",
+    "babel-eslint": "7.1.1",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-stage-1": "6.16.0",
+    "babel-register": "6.18.0",
+    "eslint": "3.13.1",
+    "eslint-config-standard": "6.2.1",
+    "eslint-plugin-promise": "3.4.0",
+    "eslint-plugin-standard": "2.0.1",
+    "rimraf": "2.5.4"
+  },
+  "ava": {
+    "require": "babel-register",
+    "babel": "inherit"
+  }
+}
