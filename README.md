@@ -1,4 +1,7 @@
 # serverless-plugin-bind-deployment-id
+[![Coverage Status](https://coveralls.io/repos/github/jacob-meacham/serverless-plugin-bind-deployment-id/badge.svg?branch=develop)](https://coveralls.io/github/jacob-meacham/serverless-plugin-bind-deployment-id?branch=develop)
+[![Build Status](https://travis-ci.org/jacob-meacham/serverless-plugin-bind-deployment-id.svg?branch=develop)](https://travis-ci.org/jacob-meacham/serverless-plugin-bind-deployment-id)
+
 Bind the serverless deployment to your custom resources like magic!
 
 # Usage
