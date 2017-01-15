@@ -32,7 +32,6 @@ export default class BindDeplyomentId {
         // We have custom stages. The deployment will also create a stage, so we'll map
         // that to an unused stage instead. The API keys will also need to depend on
         // the stage, instead of the deployment
-        debugger
         template.Resources = this.fixUpDeploymentStage(template.Resources, deploymentId)
         template.Resources = this.fixUpApiKeys(template.Resources, customStages)
       }
