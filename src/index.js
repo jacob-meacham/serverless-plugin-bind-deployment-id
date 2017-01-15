@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-export class DeplyomentId {
+export default class BindDeplyomentId {
   constructor(serverless) {
     this.serverless = serverless
     this.hooks = {
@@ -24,14 +24,15 @@ export class DeplyomentId {
     // Now, replace the reference to the deployment id
     const resources = _.get(this.serverless.service, 'resources.Resources', null)
     if (resources) {
-      const variableRegex = new RegExp(_.get(this.serverless.service, 'custom.deploymentId.variableSyntax', '{{.*}}'), 'g')
+      const variableRegex = new RegExp(_.get(this.serverless.service, 'custom.deploymentId.variableSyntax', '__deployment__'), 'g')
       this.serverless.service.resources.Resources = this.replaceDeploymentIdReferences(resources, deploymentId, variableRegex)
 
       const customStages = this.getCustomStages(this.serverless.service)
-      if (customStages.length > 0) {
+      if (Object.keys(customStages).length > 0) {
         // We have custom stages. The deployment will also create a stage, so we'll map
         // that to an unused stage instead. The API keys will also need to depend on
         // the stage, instead of the deployment
+        debugger
         template.Resources = this.fixUpDeploymentStage(template.Resources, deploymentId)
         template.Resources = this.fixUpApiKeys(template.Resources, customStages)
       }
@@ -39,21 +40,17 @@ export class DeplyomentId {
   }
 
   replaceDeploymentIdReferences(resources, deploymentId, variableRegex) {
-    if (!resources) {
-      return null
-    }
-
-    return JSON.parse(JSON.stringify(resources).replace(variableRegex))
+    return JSON.parse(JSON.stringify(resources).replace(variableRegex, deploymentId))
   }
 
-  getCustomStage(service) {
+  getCustomStages(service) {
     const resources = _.get(service, 'resources.Resources', null)
     if (!resources) {
-      return []
+      return {}
     }
 
-    return _.filter(resources, (resource) => {
-      return resource.Type === 'AWS:ApiGateway::Stage'
+    return _.pickBy(resources, (resource) => {
+      return resource.Type === 'AWS::ApiGateway::Stage'
     })
   }
 
@@ -65,14 +62,15 @@ export class DeplyomentId {
   }
 
   fixUpApiKeys(resources, stages) {
-    const dependOnStage = _.first(Object.keys(stages))
-    if (stages.length > 1) {
-      this.serverless.cli.log(`Multiple stages detected. The API keys will depend on ${dependOnStage}`)
+    const stageKeys = Object.keys(stages)
+    const stageToDependOn = _.first(stageKeys)
+    if (stageKeys.length > 1) {
+      this.serverless.cli.log(`Multiple stages detected. The API keys will depend on ${stageToDependOn}`)
     }
 
     return _.mapValues(resources, (resource) => {
       if (resource['Type'] === 'AWS::ApiGateway::ApiKey') {
-        return { ...resource, DependsOn: dependOnStage }
+        return { ...resource, DependsOn: stageToDependOn }
       }
       return resource
     })
