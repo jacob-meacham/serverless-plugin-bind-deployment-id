@@ -1,7 +1,8 @@
 {
   "presets": ["node6", "stage-1"],
   "plugins": [
-    "espower"
+    "espower",
+    "add-module-exports"
   ],
   "env": {
     "development": {
