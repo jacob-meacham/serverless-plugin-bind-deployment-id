@@ -2,16 +2,13 @@
 [![Coverage Status](https://coveralls.io/repos/github/jacob-meacham/serverless-plugin-bind-deployment-id/badge.svg?branch=develop)](https://coveralls.io/github/jacob-meacham/serverless-plugin-bind-deployment-id?branch=develop)
 [![Build Status](https://travis-ci.org/jacob-meacham/serverless-plugin-bind-deployment-id.svg?branch=develop)](https://travis-ci.org/jacob-meacham/serverless-plugin-bind-deployment-id)
 
-Bind the serverless deployment to your custom resources like magic!
+Bind the serverless deployment to your custom resources like magic! Simply use `__deployment__` in place of anywhere you want the deployment to show up.
 
 # Usage
 ```yaml
 
 custom:
-  stageVariables:
-    bucket_name: ${env.BUCKET_NAME}
-    endpoint: { "Fn::GetAtt": "CloudFrontEndpoint.DomainName" }
-    foo: bar
+  myVariable: bar
 
 resources:
   Resources:
@@ -22,7 +19,7 @@ resources:
         BasePath: analytics
         DomainName: ${self:provider.domain}
         RestApiId:
-          Ref: ApiGatewayRestApi{{deploy:deploymentId}}
+          Ref: __deployment__
         Stage: ${self:provider.stage}
     __deployment__:
       Properties:
@@ -45,3 +42,14 @@ plugins:
 ```
 
 When built, this will merge the custom properties set above with the default CloudFormation template, allowing you to apply custom properties to your Deployment or Stage. This will even allow you to add multiple Stages!
+
+## Advanced Usage
+By default `__deployment__` is the sentinel value which is replaced by the API Deployment Id. This is configurable. If you'd like to use a different value, you can set:
+
+```yaml
+custom:
+  deploymentId:
+    variableSyntax: ApiGatewayDeployment
+```
+
+In this example, any instance of ApiGatewayDeployment in your custom resources will be replaced with the true deployment Id.
