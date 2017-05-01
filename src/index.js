@@ -25,7 +25,7 @@ export default class BindDeploymentId {
     const resources = _.get(this.serverless.service, 'resources.Resources', null)
     if (resources) {
       const variableRegex = new RegExp(_.get(this.serverless.service, 'custom.deploymentId.variableSyntax', '__deployment__'), 'g')
-      template.Resources = this.replaceDeploymentIdReferences(resources, deploymentId, variableRegex)
+      template.Resources = this.replaceDeploymentIdReferences(template.Resources, deploymentId, variableRegex)
 
       const customStages = this.getCustomStages(this.serverless.service)
       if (Object.keys(customStages).length > 0) {
