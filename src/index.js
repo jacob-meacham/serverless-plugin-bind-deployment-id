@@ -4,7 +4,7 @@ export default class BindDeploymentId {
   constructor(serverless, options) {
     this.serverless = serverless
     this.hooks = {
-      'before:deploy:deploy': this.bindDeploymentId.bind(this)
+      'before:aws:package:finalize:mergeCustomProviderResources': this.bindDeploymentId.bind(this)
     }
   }
 
@@ -25,7 +25,7 @@ export default class BindDeploymentId {
     const resources = _.get(this.serverless.service, 'resources.Resources', null)
     if (resources) {
       const variableRegex = new RegExp(_.get(this.serverless.service, 'custom.deploymentId.variableSyntax', '__deployment__'), 'g')
-      template.Resources = this.replaceDeploymentIdReferences(template.Resources, deploymentId, variableRegex)
+      this.serverless.service.resources.Resources = this.replaceDeploymentIdReferences(resources, deploymentId, variableRegex)
 
       const customStages = this.getCustomStages(this.serverless.service)
       if (Object.keys(customStages).length > 0) {
