@@ -1,10 +1,10 @@
 import _ from 'lodash'
 
-export default class BindDeplyomentId {
+export default class BindDeploymentId {
   constructor(serverless, options) {
     this.serverless = serverless
     this.hooks = {
-      'before:deploy:deploy': this.bindDeploymentId.bind(this)
+      'before:aws:package:finalize:mergeCustomProviderResources': this.bindDeploymentId.bind(this)
     }
   }
 

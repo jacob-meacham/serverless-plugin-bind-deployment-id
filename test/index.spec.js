@@ -1,7 +1,7 @@
 import test from 'ava'
 import _ from 'lodash'
 
-import BindDeplyomentId from '../src'
+import BindDeploymentId from '../src'
 
 function buildServerless() {
   return {
@@ -44,7 +44,7 @@ test('bindDeploymentId#noCustomResources', t => {
   serverless.service.provider.compiledCloudFormationTemplate = defaultCompiledCloudFormation()
   const originalTemplate = _.cloneDeep(serverless.service.provider.compiledCloudFormationTemplate)
 
-  const plugin = new BindDeplyomentId(serverless, {})
+  const plugin = new BindDeploymentId(serverless, {})
   plugin.bindDeploymentId()
   t.deepEqual(serverless.service.provider.compiledCloudFormationTemplate, originalTemplate)
 })
@@ -70,7 +70,7 @@ test('bindDeploymentId#default', t => {
     }
   }
 
-  const plugin = new BindDeplyomentId(serverless, {})
+  const plugin = new BindDeploymentId(serverless, {})
   plugin.bindDeploymentId()
 
   t.is(serverless.service.provider.compiledCloudFormationTemplate.Resources.ApiGatewayDeployment1484416530047.Properties.StageName, '__unused_stage__')
@@ -99,14 +99,14 @@ test('bindDeploymentId#noCustomStages', t => {
     }
   }
 
-  const plugin = new BindDeplyomentId(serverless, {})
+  const plugin = new BindDeploymentId(serverless, {})
   plugin.bindDeploymentId()
 
   t.deepEqual(serverless.service.provider.compiledCloudFormationTemplate, originalTemplate)
 })
 
 test('replaceDeploymentIdReferences#references', t => {
-  const plugin = new BindDeplyomentId(buildServerless(), {})
+  const plugin = new BindDeploymentId(buildServerless(), {})
 
   const toReplace = {
     '__deployment__': {
@@ -132,7 +132,7 @@ test('replaceDeploymentIdReferences#references', t => {
 })
 
 test('fixUpApiKeys#oneStage', t => {
-  const plugin = new BindDeplyomentId(buildServerless(), {})
+  const plugin = new BindDeploymentId(buildServerless(), {})
 
   const resources = {
     A: {
@@ -157,7 +157,7 @@ test('fixUpApiKeys#oneStage', t => {
 })
 
 test('fixUpApiKeys#multipleStages', t => {
-  const plugin = new BindDeplyomentId(buildServerless(), {})
+  const plugin = new BindDeploymentId(buildServerless(), {})
 
   const resources = {
     A: {
@@ -186,7 +186,7 @@ test('fixUpApiKeys#multipleStages', t => {
 
 test('getCustomStages#noResources', t => {
   const serverless = buildServerless()
-  const plugin = new BindDeplyomentId(serverless, {})
+  const plugin = new BindDeploymentId(serverless, {})
 
   t.deepEqual(plugin.getCustomStages(serverless.service), {})
 })
@@ -203,7 +203,7 @@ test('getCustomStages#noStages', t => {
       }
     }
   }
-  const plugin = new BindDeplyomentId(serverless, {})
+  const plugin = new BindDeploymentId(serverless, {})
 
   t.deepEqual(plugin.getCustomStages(serverless.service), {})
 })
@@ -225,7 +225,7 @@ test('getCustomStages#stages', t => {
     Resources: { ...expectedStages, B: { Type: 'AWS::ApiGateway::Deployment' } }
   }
 
-  const plugin = new BindDeplyomentId(serverless, {})
+  const plugin = new BindDeploymentId(serverless, {})
 
   const stages = plugin.getCustomStages(serverless.service)
   t.deepEqual(stages, expectedStages)
