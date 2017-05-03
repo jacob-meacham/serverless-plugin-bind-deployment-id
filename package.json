@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-bind-deployment-id",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "engines": {
     "node": ">=4.0"
   },
@@ -46,8 +46,8 @@
     "babel-cli": "6.18.0",
     "babel-core": "6.21.0",
     "babel-eslint": "7.1.1",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-preset-node6": "^11.0.0",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-preset-node6": "11.0.0",
     "babel-preset-stage-1": "6.16.0",
     "babel-register": "6.18.0",
     "coveralls": "2.11.15",
@@ -59,6 +59,9 @@
     "eslint-plugin-standard": "2.0.1",
     "nyc": "10.0.0",
     "rimraf": "2.5.4"
+  },
+  "peerDependencies": {
+    "serverless": ">= 0.12.0"
   },
   "ava": {
     "require": [
