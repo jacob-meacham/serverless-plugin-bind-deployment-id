@@ -54,6 +54,9 @@ plugins:
 
 When built, this will merge the custom properties set above with the default CloudFormation template, allowing you to apply custom properties to your Deployment or Stage. This will even allow you to add multiple Stages!
 
+### Compatibility Note
+If you are using Serverless 0.12+, please use the 1.x.x plugin. For previous Serverless versions, use the 0.1.x plugin.
+
 ## Advanced Usage
 By default `__deployment__` is the sentinel value which is replaced by the API Deployment Id. This is configurable. If you'd like to use a different value, you can set:
 
@@ -80,3 +83,12 @@ The easiest way to get around this is to leave the default stage unused, and cre
 __deployment__:
       Properties:
         StageName: myUnusedStage
+```
+
+## Release Notes
+* 1.0.0 - Fix an incompatibility with serverless 0.12
+* 0.1.0 - Initial release
+
+## Contributors
+* [Jacob Meacham](https://github.com/jacob-meacham)
+* [ajkerr](https://github.com/ajkerr)
