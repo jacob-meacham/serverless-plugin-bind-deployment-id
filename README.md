@@ -86,7 +86,8 @@ __deployment__:
 ```
 
 ## Release Notes
-* 1.0.0 - Fix an incompatibility with serverless 0.12
+* 1.0.1 - Fix peer dependency
+* 1.0.0 - Fix an incompatibility with serverless 1.12
 * 0.1.0 - Initial release
 
 ## Contributors
