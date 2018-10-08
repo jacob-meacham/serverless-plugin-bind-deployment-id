@@ -39,7 +39,7 @@
     "ci:coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
-    "lodash": "4.17.4"
+    "lodash": "^4.17.10"
   },
   "devDependencies": {
     "ava": "0.17.0",
