@@ -479,9 +479,9 @@ babel-messages@^6.8.0:
   dependencies:
     babel-runtime "^6.0.0"
 
-babel-plugin-add-module-exports@^0.2.1:
+babel-plugin-add-module-exports@0.2.1:
   version "0.2.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-add-module-exports/-/babel-plugin-add-module-exports-0.2.1.tgz#9ae9a1f4a8dc67f0cdec4f4aeda1e43a5ff65e25"
+  resolved "http://registry.npmjs.org/babel-plugin-add-module-exports/-/babel-plugin-add-module-exports-0.2.1.tgz#9ae9a1f4a8dc67f0cdec4f4aeda1e43a5ff65e25"
 
 babel-plugin-ava-throws-helper@^0.1.0:
   version "0.1.0"
@@ -856,7 +856,7 @@ babel-preset-es2015@^6.16.0:
     babel-plugin-transform-es2015-unicode-regex "^6.3.13"
     babel-plugin-transform-regenerator "^6.16.0"
 
-babel-preset-node6@^11.0.0:
+babel-preset-node6@11.0.0:
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/babel-preset-node6/-/babel-preset-node6-11.0.0.tgz#0835994517248985a29d18f6d465dab16bb8a7d8"
   dependencies:
@@ -2427,9 +2427,13 @@ lodash.pickby@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.pickby/-/lodash.pickby-4.6.0.tgz#7dea21d8c18d7703a27c704c15d3b84a67e33aff"
 
-lodash@4.17.4, lodash@^4.0.0, lodash@^4.13.1, lodash@^4.2.0, lodash@^4.3.0:
+lodash@^4.0.0, lodash@^4.13.1, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
+lodash@^4.17.10:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
 log-driver@1.2.5:
   version "1.2.5"
