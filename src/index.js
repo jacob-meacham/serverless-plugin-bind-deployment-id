@@ -13,7 +13,7 @@ export default class BindDeploymentId {
 
     // Find the deployment resource
     let deploymentId
-    for (let key of Object.keys(template.Resources)) {
+    for (const key of Object.keys(template.Resources)) {
       const resource = template.Resources[key]
       if (resource.Type === 'AWS::ApiGateway::Deployment') {
         deploymentId = key

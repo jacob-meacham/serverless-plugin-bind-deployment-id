@@ -39,6 +39,8 @@
     "ci:coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
+    "eslint-plugin-import": "^2.18.1",
+    "eslint-plugin-node": "^9.1.0",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
