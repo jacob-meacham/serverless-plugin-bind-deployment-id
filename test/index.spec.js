@@ -22,7 +22,7 @@ function defaultCompiledCloudFormation() {
       ApiGatewayRestApi: {
         Type: 'AWS::ApiGateway::RestApi',
         Properties: {
-          'Name': 'test-api'
+          Name: 'test-api'
         }
       },
       ApiGatewayDeployment1484416530047: {
@@ -61,7 +61,7 @@ test('bindDeploymentId#default', t => {
           MethodSettings: []
         }
       },
-      '__deployment__': {
+      __deployment__: {
         Properties: {
           DataTraceEnabled: true,
           MetricsEnabled: true
@@ -90,7 +90,7 @@ test('bindDeploymentId#noCustomStages', t => {
 
   serverless.service.resources = {
     Resources: {
-      '__deployment__': {
+      __deployment__: {
         Properties: {
           DataTraceEnabled: true,
           MetricsEnabled: true
@@ -109,7 +109,7 @@ test('replaceDeploymentIdReferences#references', t => {
   const plugin = new BindDeploymentId(buildServerless(), {})
 
   const toReplace = {
-    '__deployment__': {
+    __deployment__: {
       a: [],
       b: {
         c: ['__deployment__']
