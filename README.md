@@ -86,6 +86,7 @@ __deployment__:
 ```
 
 ## Release Notes
+* 1.1.0 - Dependency upgrade (thanks [@ericsorensen](https://github.com/ericsorenson))
 * 1.0.2 - Update lodash to fix known security issue (thanks [@brownjava](https://github.com/brownjava))
 * 1.0.1 - Fix peer dependency
 * 1.0.0 - Fix an incompatibility with serverless 1.12
