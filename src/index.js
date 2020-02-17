@@ -36,6 +36,12 @@ export default class BindDeploymentId {
         template.Resources = this.fixUpApiKeys(template.Resources, customStages)
       }
     }
+
+    const resourceExtensions = _.get(this.serverless.service, 'resources.extensions', null)
+    if (resourceExtensions) {
+      const variableRegex = new RegExp(_.get(this.serverless.service, 'custom.deploymentId.variableSyntax', '__deployment__'), 'g')
+      this.serverless.service.resources.extensions = this.replaceDeploymentIdReferences(resourceExtensions, deploymentId, variableRegex)
+    }
   }
 
   replaceDeploymentIdReferences(resources, deploymentId, variableRegex) {
