@@ -86,6 +86,8 @@ __deployment__:
 ```
 
 ## Release Notes
+* 1.2.0 - The Serverless framework has added support for the resources.extensions block, which has slightly-more-formalized merge behaviour. 1.2.0 adds support for replacing the deployment ID in the extensions
+block. (thanks [@glb](https://github.com/glb))
 * 1.1.1 - Dependency upgrades from dependabot
 * 1.1.0 - Dependency upgrade (thanks [@ericsorensen](https://github.com/ericsorenson))
 * 1.0.2 - Update lodash to fix known security issue (thanks [@brownjava](https://github.com/brownjava))
