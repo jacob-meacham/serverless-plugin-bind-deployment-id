@@ -39,8 +39,6 @@
     "ci:coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
-    "eslint-plugin-import": "^2.18.1",
-    "eslint-plugin-node": "^9.1.0",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
@@ -60,7 +58,9 @@
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-standard": "4.0.0",
     "nyc": "14.1.1",
-    "rimraf": "2.6.3"
+    "rimraf": "2.6.3",
+    "eslint-plugin-import": "2.18.1",
+    "eslint-plugin-node": "9.1.0",
   },
   "peerDependencies": {
     "serverless": ">=1.48.0"
