@@ -83,6 +83,29 @@ test('bindDeploymentId#default', t => {
   })
 })
 
+test('bindDeploymentId#replacesExtensions', t => {
+  const serverless = buildServerless()
+  serverless.service.provider.compiledCloudFormationTemplate = defaultCompiledCloudFormation()
+  serverless.service.resources = {
+    extensions: {
+      __deployment__: {
+        DependsOn: [
+          'sample'
+        ]
+      }
+    }
+  }
+
+  const plugin = new BindDeploymentId(serverless, {})
+  plugin.bindDeploymentId()
+
+  t.deepEqual(serverless.service.resources.extensions.ApiGatewayDeployment1484416530047, {
+    DependsOn: [
+      'sample'
+    ]
+  })
+})
+
 test('bindDeploymentId#noCustomStages', t => {
   const serverless = buildServerless()
   serverless.service.provider.compiledCloudFormationTemplate = defaultCompiledCloudFormation()
