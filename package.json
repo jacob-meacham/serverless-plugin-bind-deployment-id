@@ -62,9 +62,6 @@
     "eslint-plugin-import": "2.18.1",
     "eslint-plugin-node": "9.1.0"
   },
-  "peerDependencies": {
-    "serverless": ">=1.48.0"
-  },
   "ava": {
     "require": [
       "babel-register"
