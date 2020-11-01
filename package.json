@@ -1,6 +1,6 @@
 {
   "name": "serverless-plugin-bind-deployment-id",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "engines": {
     "node": ">=12.0"
   },
@@ -60,9 +60,6 @@
     "nyc": "15.1.0",
     "rimraf": "3.0.2",
     "serverless": "2.9.0"
-  },
-  "peerDependencies": {
-    "serverless": ">=1.48.0"
   },
   "ava": {
     "require": [
