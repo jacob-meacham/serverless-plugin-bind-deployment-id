@@ -74,7 +74,7 @@ export default class BindDeploymentId {
     }
 
     return _.mapValues(resources, (resource) => {
-      if (resource['Type'] === 'AWS::ApiGateway::ApiKey') {
+      if (resource.Type === 'AWS::ApiGateway::ApiKey') {
         return { ...resource, DependsOn: stageToDependOn }
       }
       return resource

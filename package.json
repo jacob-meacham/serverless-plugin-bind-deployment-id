@@ -2,7 +2,7 @@
   "name": "serverless-plugin-bind-deployment-id",
   "version": "1.2.0",
   "engines": {
-    "node": ">=4.0"
+    "node": ">=12.0"
   },
   "description": "Serverless plugin to bind the randomly generated deployment id to custom resources",
   "author": "jemonjam <jacob.e.meacham@gmail.com>",
@@ -42,33 +42,48 @@
     "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "ava": "0.17.0",
-    "babel-cli": "6.26.0",
-    "babel-core": "6.26.3",
-    "babel-eslint": "10.0.2",
-    "babel-plugin-add-module-exports": "1.0.2",
-    "babel-preset-node6": "11.0.0",
-    "babel-preset-stage-1": "6.24.1",
-    "babel-register": "6.26.0",
-    "coveralls": "3.0.5",
-    "cross-env": "5.2.0",
-    "eslint": "6.0.1",
-    "eslint-config-standard": "13.0.1",
-    "eslint-plugin-ava": "7.1.0",
+    "@ava/babel": "1.0.1",
+    "@babel/cli": "7.12.1",
+    "@babel/core": "7.12.3",
+    "@babel/preset-env": "7.12.1",
+    "@babel/register": "7.12.1",
+    "ava": "3.13.0",
+    "coveralls": "3.1.0",
+    "cross-env": "7.0.2",
+    "eslint": "7.12.1",
+    "eslint-config-standard": "16.0.1",
+    "eslint-plugin-ava": "11.0.0",
+    "eslint-plugin-import": "2.22.1",
+    "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "4.2.1",
-    "eslint-plugin-standard": "4.0.0",
-    "nyc": "14.1.1",
-    "rimraf": "2.6.3",
-    "eslint-plugin-import": "2.18.1",
-    "eslint-plugin-node": "9.1.0"
+    "eslint-plugin-standard": "4.0.2",
+    "nyc": "15.1.0",
+    "rimraf": "3.0.2",
+    "serverless": "2.9.0"
   },
   "peerDependencies": {
     "serverless": ">=1.48.0"
   },
   "ava": {
     "require": [
-      "babel-register"
+      "@babel/register"
+    ]
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": 12
+          }
+        }
+      ]
     ],
-    "babel": "inherit"
+    "env": {
+      "development": {
+        "sourceMaps": "inline"
+      }
+    }
   }
 }
