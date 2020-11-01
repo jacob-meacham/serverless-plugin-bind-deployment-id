@@ -86,6 +86,7 @@ __deployment__:
 ```
 
 ## Release Notes
+* 2.0.0 - Major dependency upgrades, force node >= 12.
 * 1.2.0 - The Serverless framework has added support for the resources.extensions block, which has slightly-more-formalized merge behaviour. 1.2.0 adds support for replacing the deployment ID in the extensions
 block. (thanks [@glb](https://github.com/glb))
 * 1.1.1 - Dependency upgrades from dependabot
