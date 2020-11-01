@@ -61,9 +61,6 @@
     "rimraf": "3.0.2",
     "serverless": "2.9.0"
   },
-  "peerDependencies": {
-    "serverless": ">=1.48.0"
-  },
   "ava": {
     "require": [
       "@babel/register"
