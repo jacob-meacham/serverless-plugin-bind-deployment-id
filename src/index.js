@@ -1,6 +1,6 @@
 import _ from 'lodash'
 
-export default class BindDeploymentId {
+class BindDeploymentId {
   constructor(serverless, options) {
     this.serverless = serverless
     this.hooks = {
@@ -81,3 +81,6 @@ export default class BindDeploymentId {
     })
   }
 }
+
+exports.default = BindDeploymentId
+module.exports = exports.default
