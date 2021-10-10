@@ -86,7 +86,8 @@ __deployment__:
 ```
 
 ## Release Notes
-* 2.0.0 - Fix default export breaking change
+* 2.0.3 - Dependency security updates
+* 2.0.2 - Fix default export breaking change
 * 2.0.1 - Remove serverless peer dependency (thanks [@johnmee](https://github.com/johnmee))
 * 2.0.0 - Major dependency upgrades, force node >= 12.
 * 1.2.0 - The Serverless framework has added support for the resources.extensions block, which has slightly-more-formalized merge behaviour. 1.2.0 adds support for replacing the deployment ID in the extensions
