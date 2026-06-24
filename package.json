@@ -44,7 +44,7 @@
   "devDependencies": {
     "@ava/babel": "1.0.1",
     "@babel/cli": "7.12.1",
-    "@babel/core": "7.12.3",
+    "@babel/core": "7.29.6",
     "@babel/preset-env": "7.12.1",
     "@babel/register": "7.12.1",
     "ava": "3.13.0",
